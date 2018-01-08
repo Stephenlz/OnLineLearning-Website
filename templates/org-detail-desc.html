@@ -1,0 +1,16 @@
+{% extends 'orgBase.html' %}
+{% load staticfiles %}
+{% block title %} OrgDesc {% endblock %}
+{% block customerPageName %} OrgDesc {% endblock %}
+{% block customContent %}
+    <div class="right companycenter layout">
+        <div class="head">
+            <h1>机构介绍</h1>
+            <a class="green fr more" href="{% url 'org:orgDesc' courseOrg.name %}">more > </a>
+        </div>
+
+        <div class="cont">
+            {{ courseOrg.desc }}
+        </div>
+    </div>
+{% endblock %}

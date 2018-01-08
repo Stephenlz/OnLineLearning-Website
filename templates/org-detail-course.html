@@ -1,0 +1,32 @@
+{% extends 'orgBase.html' %}
+{% load staticfiles %}
+{% block title %} OrgCourse {% endblock %}
+{% block customerPageName %} OrgCourse {% endblock %}
+{% block customContent %}
+    <div class="right companycenter layout grouping">
+        <div class="head">
+            <h1>Courses</h1>
+            <a class="green fr more" href="{% url 'org:orgCourse' courseOrg.name %}">more > </a>
+        </div>
+
+        <div class="brief group_list">
+            {% for course in allCourses %}
+                <div class="module1_5 box">
+                    <a href="course-detail.html"><img width="214" src="{{ MEDIA_URL }}{{ course.image }}"/></a>
+                    <div class="des">
+                        <a href="course-detail.html"><h2>{{ course.name }}</h2></a>
+                        <span class="fl">Learn time：<i class="key">{{ course.learnTime }}</i></span>
+                        <span class="fr">Students number：<i class="key">{{ course.studentNum }}</i></span>
+                    </div>
+                    <div class="bottom">
+                        <span class="fl">{{ course.CourseOrg.name }}</span>
+                        <span class="star fr  notlogin
+                            " data-favid="13" data-fav-type="4">
+                            {{ course.favoriteNum }}
+                        </span>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
